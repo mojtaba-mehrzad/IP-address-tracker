@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+:root{
+    --Gray-950: hsl(0, 0%, 17%);
+    --Gray-400: hsl(0, 0%, 58%);
+}
+.header{
+    background-image: url(../images/pattern-bg-desktop.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ip-input:focus{
+    color: var(--Gray-950);
+}
+.ip-input::placeholder{
+    color: var(--Gray-400);
+}
