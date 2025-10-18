@@ -12,7 +12,7 @@ export default function useIPInfo(ip) {
       setLoading(true);
       try {
         const url = ip
-          ? `https://geo.ipify.org/api/v2/country?apiKey=${API_KEY}&ipAddress=${ip}`
+          ? `https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}&ipAddress=${ip}`
           : `https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}`;
         const res = await fetch(url);
         const json = await res.json();
