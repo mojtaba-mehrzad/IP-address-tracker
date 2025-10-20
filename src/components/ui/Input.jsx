@@ -18,12 +18,6 @@ export default function Input({ onSearch, loading }) {
     setValue("");
   }
 
-  function handleChange(e) {
-    setValue(e.target.value);
-    const validationError = validateIP(value);
-    setInputError(validationError);
-  }
-
   return (
     <>
       <form
@@ -33,7 +27,7 @@ export default function Input({ onSearch, loading }) {
         className="input-container "
       >
         <input
-          onChange={handleChange}
+          onChange={(e)=>{setValue(e.target.value);}}
           type="text"
           value={value}
           placeholder="Search for any IP address or domain"
