@@ -1,8 +1,8 @@
-import React from "react";
 import { MapContainer, TileLayer, Marker, Popup, ZoomControl, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { useEffect } from "react";
+import markerIcon from "/images/icon-location.svg"
 
 
 function OffsetView() {
@@ -16,7 +16,7 @@ function OffsetView() {
 }
 
 const icon = L.icon({
-  iconUrl: "/images/icon-location.svg",
+  iconUrl: markerIcon,
   iconSize: [46, 56],
   iconAnchor: [12, 41],
 });
