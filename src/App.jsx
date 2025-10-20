@@ -8,7 +8,7 @@ export default function App() {
   const [ ip, setIp] = useState("");
   const { data, loading, error } = useIPInfo(ip);
   return (
-    <main className="w-dvw h-screen flex flex-col">
+    <main className="w-dvw h-screen flex flex-col" role="main" aria-label="IP Address Tracker Application">
       <InfoPanel info={data} onSearch={setIp} loading={loading} error={error} />
       <MapView info={data} />
     </main>

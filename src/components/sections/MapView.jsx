@@ -34,26 +34,37 @@ export default function MapView({ info }) {
 
   if(invalidCoords){
     return(
-      <section className="w-full flex-1 map flex items-center justify-center bg-gray-200">
-        <p className="text-gray-600 italic">Waiting for valid coordinates...</p>
+      <section 
+        className="w-full flex-1 map flex items-center justify-center bg-gray-200"
+        role="region"
+        aria-label="Map View - Waiting for Location Data"
+      >
+        <p className="text-gray-600 italic" role="status" aria-live="polite">
+          Waiting for valid coordinates...
+        </p>
       </section>
     )
   }
   return (
-    <section className="w-full h-2/3 map z-10">
+    <section 
+      className="w-full h-2/3 map z-10"
+      role="region"
+      aria-label="Interactive Map showing IP Location"
+    >
       <MapContainer
         center={[lat, lng]}
         zoomControl={false}
         zoom={13}
         style={{ height: "100%", width: "100%", zIndex: "0" }}
         key={`${lat}-${lng}`}
+        aria-label={`Map centered at latitude ${lat}, longitude ${lng}`}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <ZoomControl position="bottomleft" />
-        <Marker position={[lat, lng]} icon={icon}>
+        <Marker position={[lat, lng]} icon={icon} aria-label="Location marker">
           <Popup>📍 User Location</Popup>
         </Marker>
         <OffsetView />

@@ -10,7 +10,7 @@
         @apply relative flex flex-col justify-items-center items-center  w-full h-[18.625rem] md:h-70 bg-[url(/images/pattern-bg-mobile.png)] md:bg-[url(/images/pattern-bg-desktop.png)] bg-center bg-no-repeat bg-cover z-20 overflow-visible;
     }
 
-    .header h1{
+    .header h2{
         @apply pt-[1.375rem] md:pt-[1.875rem] mb-[0.375rem] md:mb-3 text-[1.625rem] font-[500] text-white md:text-3xl md:font-bold ;
     }
 
@@ -26,8 +26,12 @@
         @apply flex justify-center items-center px-2 h-14 min-w-fit w-[3.625rem] rounded-l-none rounded-r-2xl bg-black hover:bg-gray-800 hover:cursor-pointer;
     }
 
+    #ip-error-message{
+        @apply absolute top-[48%] ml-4 md:top-7/12 md:ml-5  text-red-200 text-sm z-50;
+    }
+
     .info-container{
-        @apply flex flex-col md:flex-row md:justify-between flex-shrink-0 items-center md:min-h-40 w-7/8 sm:w-10/12 mt-6 md:mt-[3.0625rem] p-3 md:py-[2.125rem] md:divide-x divide-gray-300 text-center md:text-left bg-white shadow-xl rounded-2xl overflow-visible z-10 ;
+        @apply relative flex flex-col md:flex-row md:justify-between flex-shrink-0 items-center md:min-h-40 w-7/8 sm:w-10/12 mt-6 md:mt-[3.0625rem] p-3 md:py-[2.125rem] md:divide-x divide-gray-300 text-center md:text-left bg-white shadow-xl rounded-2xl overflow-visible z-10 ;
     }
 
     div.info-item {

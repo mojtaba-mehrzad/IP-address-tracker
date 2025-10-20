@@ -25,24 +25,42 @@ export default function Input({ onSearch, loading }) {
         noValidate
         onSubmit={handleSubmit}
         className="input-container "
+        role="search"
+        aria-label="IP Address Search Form"
       >
+        <label htmlFor="ip-search-input" className="sr-only">
+          Search for any IP address or domain
+        </label>
         <input
+          id="ip-search-input"
           onChange={(e)=>{setValue(e.target.value);}}
           type="text"
           value={value}
           placeholder="Search for any IP address or domain"
           className={`ip-input ${inputError ? "bg-red-50 placeholder-red-500" : "bg-white placeholder:text-CGray-400"}`}
+          aria-invalid={inputError ? "true" : "false"}
+          aria-describedby={inputError ? "ip-error-message" : undefined}
+          autoComplete="off"
         />
         <button
           type="submit"
           disabled={loading}
+          aria-label={loading ? "Searching..." : "Search IP address or domain"}
           className={`input-button ${loading ? "opacity-60 cursor-not-allowed" : ""}`}
         >
-          <img src={buttonIcon} alt="" />
+          <img src={buttonIcon} alt="" aria-hidden="true" />
         </button>
+      {inputError && (
+        <p 
+          id="ip-error-message"
+          role="alert"
+          aria-live="polite"
+        >
+          {inputError}
+        </p>
+      )}
       </form>
 
-      {inputError && <p className="text-red-200 mt-2 text-sm">{inputError}</p>}
     </>
   );
 }
