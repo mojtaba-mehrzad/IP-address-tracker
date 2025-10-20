@@ -8,7 +8,7 @@ export default function App() {
   const [ ip, setIp] = useState("");
   const { data, loading, error } = useIPInfo(ip);
   return (
-    <main className="w-dvw h-dvh">
+    <main className="w-dvw h-screen flex flex-col">
       <InfoPanel info={data} onSearch={setIp} loading={loading} error={error} />
       <MapView info={data} />
     </main>

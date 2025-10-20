@@ -1,19 +1,45 @@
 @import "tailwindcss";
 
-:root{
-    --Gray-950: hsl(0, 0%, 17%);
-    --Gray-400: hsl(0, 0%, 58%);
-}
-.header{
-    background-image: url(../images/pattern-bg-desktop.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+@theme{
+    --color-CGray-950: hsl(0, 0%, 17%);
+    --color-CGray-400: hsl(0, 0%, 58%);
 }
 
-.ip-input:focus{
-    color: var(--Gray-950);
+@layer components {
+    .header{
+        @apply relative bg-[url(/images/pattern-bg-mobile.png)] md:bg-[url(/images/pattern-bg-desktop.png)] bg-center bg-no-repeat bg-cover z-20 overflow-visible  w-full h-[18.625rem] md:h-70 flex flex-col justify-items-center items-center;
+    }
+
+    .header h1{
+        @apply pt-[1.375rem] mb-[1.375rem] text-[1.625rem] font-[500] text-white md:text-3xl md:pt-[30px] md:font-bold md:mb-3;
+    }
+
+    .input-container{
+        @apply w-14/16  sm:w-10/12  md:w-7/12 lg:w-3/8  mt-4 flex flex-row;
+    }
+
+    .ip-input{
+        @apply rounded-r-none rounded-l-2xl text-base md:text-lg text-CGray-950 font-normal placeholder:text-CGray-400 placeholder:text-sm border-none focus:outline-none hover:cursor-pointer h-14 px-[1.375rem] py-[1.25rem] bg-white flex-11;
+    }
+
+    .input-button{
+        @apply flex justify-center items-center rounded-l-none rounded-r-2xl min-w-fit w-[58px] bg-black hover:bg-gray-800 hover:cursor-pointer h-14 px-2 ;
+    }
+
+    .info-container{
+        @apply flex flex-col md:flex-row md:justify-between flex-shrink-0 items-center md:min-h-40 w-7/8 sm:w-10/12 mt-6 md:mt-[49px] p-3 md:py-[34px] md:divide-x divide-gray-300 text-center md:text-left bg-white rounded-2xl overflow-visible z-10 ;
+    }
+
+    div.info-item {
+        @apply  py-[10px] md:py-0 md:h-full md:px-8 md:flex-1 ;
+    }
+
+    .info-item-name{
+        @apply text-CGray-400 font-extrabold text-[10px] md:text-[12px] mb-3 tracking-[0.08rem];
+    }
+
+    .info-item-value{
+        @apply  h-full  text-CGray-950 text-xl md:text-2xl font-bold;
+    }
 }
-.ip-input::placeholder{
-    color: var(--Gray-400);
-}
+
